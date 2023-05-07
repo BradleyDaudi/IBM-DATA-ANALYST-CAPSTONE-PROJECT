@@ -116,6 +116,42 @@ plt.title("Histogram of Survey Respondent Ages")
 plt.show()
 
 
+# Calculate the median ConvertedComp before removing outliers
+median_comp = df['ConvertedComp'].median()
+# Print the median ConvertedComp before removing outliers
+print("Median ConvertedComp before removing outliers:", median_comp)
+---------Median ConvertedComp before removing outliers: 57745.0------
+
+
+
+# Calculate the quartiles and IQR
+Q1 = df['ConvertedComp'].quantile(0.25)
+Q3 = df['ConvertedComp'].quantile(0.75)
+IQR = Q3 - Q1
+# Remove outliers
+df_no_outliers = df[(df['ConvertedComp'] >= Q1 - 1.5*IQR) & (df['ConvertedComp'] <= Q3 + 1.5*IQR)]
+# Calculate the median ConvertedComp after removing outliers
+median_comp_no_outliers = df_no_outliers['ConvertedComp'].median()
+# Print the median ConvertedComp after removing outliers
+print("Median ConvertedComp after removing outliers:", median_comp_no_outliers)
+----------Median ConvertedComp after removing outliers: 52704.0------
+
+
+# Calculate the first and third quartiles and the interquartile range
+q1, q3 = np.percentile(df['ConvertedComp'].dropna(), [25, 75])
+iqr = q3 - q1
+# Calculate the lower and upper bounds for outliers
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+# Remove outliers from the DataFrame
+df_no_outliers = df[(df['ConvertedComp'].notnull()) & (df['ConvertedComp'] >= lower_bound) & (df['ConvertedComp'] <= upper_bound)]
+# Calculate the mean ConvertedComp after removing outliers
+mean_convertedcomp_no_outliers = df_no_outliers['ConvertedComp'].mean()
+print(mean_convertedcomp_no_outliers)
+---------59883.20838915799-----------
+
+
+
 
 
 
