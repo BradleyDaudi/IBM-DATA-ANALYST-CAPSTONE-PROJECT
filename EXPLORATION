@@ -65,3 +65,41 @@ print("Number of missing rows in the Country column:", num_missing_rows)
 ------Number of missing rows in the Country column: 0--------------
 
 
+# Find the majority category under the "Employment" column
+majority_category = df["Employment"].value_counts().idxmax()
+# Print the majority category under the "Employment" column
+print("Majority category under the Employment column:", majority_category)
+--------Majority category under the Employment column: Employed full-time--------
+
+# Find the category with the minimum number of rows under the "UndergradMajor" column
+min_category = df["UndergradMajor"].value_counts().idxmin()
+# Print the category with the minimum number of rows under the "UndergradMajor" column
+print("Category with the minimum number of rows under the UndergradMajor column:", min_catego
+---Category with the minimum number of rows under the UndergradMajor column: A health science (ex. nursing, pharmacy, radiology)----
+
+
+# Find the number of unique values in the "CompFreq" column
+nunique_comp_freq = df["CompFreq"].nunique()
+# Print the number of unique values in the "CompFreq" column
+print("Number of unique values in the CompFreq column:", nunique_comp_freq)
+-------Number of unique values in the CompFreq column: 3-----------
+
+
+# Filter the DataFrame to include only rows where the "CompFreq" column is "Yearly"
+yearly_df = df[df["CompFreq"] == "Yearly"]
+# Count the number of rows in the filtered DataFrame
+yearly_count = yearly_df.shape[0]
+# Print the number of respondents being paid yearly
+print("Number of respondents being paid yearly:", yearly_count)
+----Number of respondents being paid yearly: 6073------------------
+
+
+# Find the median value of the "NormalizedAnnualCompensation" column
+median_compensation = df["NormalizedAnnualCompensation"].median()
+# Print the median value of the "NormalizedAnnualCompensation" column
+print("Median NormalizedAnnualCompensation:", median_compensation)
+
+
+
+
+
