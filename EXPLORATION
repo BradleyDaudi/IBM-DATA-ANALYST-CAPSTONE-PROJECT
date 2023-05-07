@@ -40,5 +40,15 @@ print("Mean age:", df["Age"].mean())
 print("Number of unique countries:", df["Country"].nunique())
 -----Number of unique countries: 135------
 
+# Remove duplicate rows from the data frame
+df = df.drop_duplicates()
+# Print the number of rows in the data frame after removing duplicates
+print("Number of rows after removing duplicates:", df.shape[0])
+-----Number of rows after removing duplicates: 11398-------
+
+# Print the number of unique rows in the data frame
+print("Number of unique rows:", df.nunique())
+-----Number of unique rows: Respondent      11398------------
+
 
 
