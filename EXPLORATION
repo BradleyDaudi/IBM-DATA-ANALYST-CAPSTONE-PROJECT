@@ -150,6 +150,21 @@ mean_convertedcomp_no_outliers = df_no_outliers['ConvertedComp'].mean()
 print(mean_convertedcomp_no_outliers)
 ---------59883.20838915799-----------
 
+##display negative correlation
+corr_matrix = df.corr()
+corr_matrix['Age'].sort_values()
+--------
+CodeRevHrs      -0.020469-------->>>lowest
+Respondent       0.004041
+CompTotal        0.006970
+WorkWeekHrs      0.036518
+ConvertedComp    0.105386--------->>>>highest
+Age              1.000000
+Name: Age, dtype: float64
+-----------
+
+
+
 
 
 
