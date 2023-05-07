@@ -51,4 +51,17 @@ print("Number of unique rows:", df.nunique())
 -----Number of unique rows: Respondent      11398------------
 
 
+# Count the number of blank rows in the "EdLevel" column
+num_blank_rows = df["EdLevel"].isna().sum()
+# Print the number of blank rows in the "EdLevel" column
+print("Number of blank rows in the EdLevel column:", num_blank_rows)
+-------Number of blank rows in the EdLevel column: 112-----------
+
+
+# Count the number of missing rows in the "Country" column
+num_missing_rows = df["Country"].isna().sum()
+# Print the number of missing rows in the "Country" column
+print("Number of missing rows in the Country column:", num_missing_rows)
+------Number of missing rows in the Country column: 0--------------
+
 
