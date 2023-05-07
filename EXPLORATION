@@ -94,10 +94,26 @@ print("Number of respondents being paid yearly:", yearly_count)
 ----Number of respondents being paid yearly: 6073------------------
 
 
-# Find the median value of the "NormalizedAnnualCompensation" column
-median_compensation = df["NormalizedAnnualCompensation"].median()
-# Print the median value of the "NormalizedAnnualCompensation" column
-print("Median NormalizedAnnualCompensation:", median_compensation)
+# Calculate the median age of survey respondents
+median_age = df["Age"].median()
+# Print the median age of survey respondents
+print("Median age of survey respondents:", median_age)
+-----Median age of survey respondents: 29.0---
+
+# Calculate the median ConvertedComp of respondents who have identified themselves as ‘Woman’
+median_comp_woman = df.loc[df["Gender"] == "Woman", "ConvertedComp"].median()
+# Print the median ConvertedComp of respondents who have identified themselves as ‘Woman’
+print("Median ConvertedComp of respondents who have identified themselves as ‘Woman’:", median_comp_woman)
+------Median ConvertedComp of respondents who have identified themselves as ‘Woman’: 57708.0----
+
+#import 
+import matplotlib.pyplot as plt
+# Create a histogram of the ages of survey respondents
+plt.hist(df["Age"], bins=20)
+plt.xlabel("Age")
+plt.ylabel("Frequency")
+plt.title("Histogram of Survey Respondent Ages")
+plt.show()
 
 
 
